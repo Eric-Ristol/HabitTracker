@@ -13,7 +13,7 @@ class Habit:
     def create(self,habit_name, description, frequency,creation_date):
 
         db.insert_habit(habit_name, description, frequency,creation_date)
-        db.create_habit_checkoff_table(habit_name, creation_date)#creation date is used as first date of the check off table with checking = 0 by default.
+        db.create_habit_checkoff_table(habit_name, creation_date)#Creation date is used as first date of the check-off table with checking = 0 by default.
         return True
 
 
@@ -45,10 +45,11 @@ class Habit:
 
     def check_off_date(self,habit_name,check_off_date,frequency):
 
-        check_off_date = db.compare_creation_checkoff_dates(habit_name,check_off_date) #In case the user introduces a check off date anterior to the creation date or in the future from today, this is solved asking to rewirte it and through this function the new valid input is transmitted to the rest of the function.
+        check_off_date = db.compare_creation_checkoff_dates(habit_name,check_off_date) #In case the user enters a check-off date before the creation date or in the future from today, this is solved by asking to rewrite it and through this function the new valid input is transmitted to the rest of the function.
         db.create_intermediate_dates_checkoff_table(habit_name, check_off_date) 
         db.check_off(habit_name, check_off_date,frequency)
         db.show_check_off(habit_name,check_off_date,frequency)
         return True
+    
     
     
