@@ -5,22 +5,22 @@ Object-Oriented Programming (OOP) is required in habit.py, while the rest of the
 <br />
 
 ## Features
--Implementation of an easy CLI.
+-Implementation of an easy-to-use CLI.
 
 -Any frequency greater than 1 day can be used.
 
 -Computes streaks and struggles.
 
--A profesional storage solution like SQLite3 was used.
+-A professional storage solution like SQLite3 was used.
 
--Check completion is possible at any time between of the habit creation and today. 
+-Check completion is possible at any time between the habit creation and today.
 
 ## Required packages
 These are the strings that have to be input in your terminal to install the packages to run this code.
 
 `pip install pytest`
 
-if the above commands doesn't work you should try with:
+If the above commands doesn't work you should try with:
 
 `pip3 install pytest`
 
@@ -29,7 +29,7 @@ if the above commands doesn't work you should try with:
 
 -If you want to use it with the predefined data, predefined_data.py must be executed before main.py. In both cases, main.db will be the db, and if you do both the data will be merged without any problem.
 
--If tests are run, you do not have to worry about your current database information because an alternate test.db is created for this purpose.
+-If tests are run, you do not have to worry about your current database information, as an alternate test.db is created for this purpose.
 
 
 ## About testing
