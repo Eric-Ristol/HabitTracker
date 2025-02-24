@@ -12,9 +12,9 @@ def connection(database_name):
 
 def list_habits()->list:
     """
-    Returns a list of all current habits from the  habits table.
-    The first entry of the list is an header of what is every value of the rest of the list.
-    This list is more intended to be where to get all relevant information for the user e.g forgot active habits or the frequency of some habit.
+    Returns a list of all current habits from the habits table.
+    The first entry of the list is a header of what every value in the rest of the list represents.
+    This list is intended to provide all relevant information for the user, e.g., active habits or the frequency of some habit.
     """
     connect = sqlite3.connect(f"{db_name}")
     cursor = connect.cursor()
@@ -54,7 +54,7 @@ def get_checks(habit_name)->list:
 
 
 def only_names_list()->list:
-    #Returns a list of all habit names, only names, that's the main diference with list_habits. This function is used in overall streak and struggle.
+    # Returns a list of all habit names (only names; that's the main difference from list_habits). This function is used in overall streak and struggle calculations.
     connect = sqlite3.connect(f"{db_name}")
     cursor = connect.cursor()
     query = f'''SELECT habit_name FROM habits'''
@@ -67,7 +67,7 @@ def only_names_list()->list:
 
 
 
-"""Longest run streak for a given habit."""
+"""Longest streak for a given habit."""
 
 
 def streak(habit_name)->int:
@@ -123,7 +123,7 @@ def overall_streak()->int:
 
 
 
-"""-Struggling habits, i.e the habits that have been checked off less."""
+"""Struggling habits, i.e., the habits that have been checked off the least."""
 
 
 
@@ -205,7 +205,7 @@ def module():
         print("\n5. Longest struggle of all defined habits")
         print("6. Longest struggle for a given habit")
 
-        print("\n7. Exit to the habit tracker CLI")
+        print("\n7. Come back to the habit tracker CLI")
 
         choice = empty(input("\nEnter your choice (1-7): "))
         
@@ -234,7 +234,7 @@ def module():
                     print("This value has to be an integer!")
             frequency_names_list = same_frequency_list(frequency)
             if not frequency_names_list:
-                print("There are no habit with this frequency")
+                print("There are no habits with this frequency")
                 continue
             print()
             for index in range(0, len(frequency_names_list)):
@@ -281,3 +281,4 @@ def module():
 
         else:
             print("Invalid choice. Please enter a number between 1 and 7.")
+
