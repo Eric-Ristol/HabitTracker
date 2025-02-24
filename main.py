@@ -19,7 +19,7 @@ def empty(value):
 
 
 def date_format(date):
-    #Date _format is intended to force the user to introduce a date in the format YYYY-MM-DD, also avoids the user to introduce a date with spaces.
+    #Date_format is intended to force the user to enter a date in the format YYYY-MM-DD, also prevents the user from entering a date with spaces.
     #There is no need to execute date_format with empty().
     while True:
         try:
@@ -61,7 +61,7 @@ def main():
                 print("This habit already exist!")
                 continue
             description = input("Enter the habit description(no special characters, numbers allowed): ") #Description can be empty, it does not generate any problem.
-            description = description.replace(" ", "_")
+            description = description.strip().replace(" ", "_")
             while True: #Check if the input value is an integer or not, and if not asks again until an intger is introduced.
                 try:
                     frequency = int(input("Enter the frequency (in days): "))
@@ -94,10 +94,11 @@ def main():
             #Assignation of new values for the habit
             new_habit_name = empty(input("What is the new name of the habit(no special characters, numbers allowed): "))
             new_description = input("What is the new description of the habit(no special characters, numbers allowed): ")
-            new_description = new_description.replace(" ", "_")
+            new_description = new_description.strip().replace(" ", "_")
 
             if h.modify(habit_name,new_habit_name,new_description):
                 habit_name = habit_name.replace("_", " ")
+                new_habit_name = new_habit_name.replace("_", " ")
                 print(f"Habit '{habit_name}' ---> '{new_habit_name}' successfully!")
 
 
