@@ -96,4 +96,3 @@ def test_struggle():
     assert analytics.struggle(habit_name="Test_name2") == 28
     assert analytics.struggle(habit_name="Test_name3") == 27
     db.erase("test.db")#finally I delete the db to not create incompatibility if the test is run more than once or the functions are edited.
-
