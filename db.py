@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 
 def date_format(date):
-    #Date _format is intended to force the user to introduce a date in the format YYYY-MM-DD, also avoids the user to introduce a date with spaces.
+    #Date_format is intended to force the user to enter a date in the format YYYY-MM-DD, also prevents the user from entering a date with spaces.
     #There is no need to execute date_format with empty(), because .strip() is inside this function.
     while True:
         try:
@@ -157,9 +157,9 @@ def rename_habit_checkoff_table(new_habit_name, habit_name):
 
 def compare_creation_checkoff_dates(habit_name, check_off_date)->str:
     """
-    Only used into habit class -> fuction: check_off_date
-    This function is key when ensuring that check off is not in the future nor before to the creation date of the habit, ensuring a good logic in the program behaviour.
-    Regardless is not relationed with this function is good to know that checks off in the future are not allowed, but create an habit in the future is allowed, that's because of the common use of for instance New Year's resolutions.
+    Only used in habit class -> function: check_off_date
+    This function ensures that check-off dates are not in the future or before the creation date of the habit, ensuring logical program behavior.
+    Although not related to this function, it's good to know that future check-offs are not allowed, but creating a habit in the future is allowed, as is common with New Year's resolutions.
     """
     connect = sqlite3.connect(f"{db_name}")
     cursor = connect.cursor()
@@ -276,3 +276,5 @@ def search_check_off(habit_name, check_off_date)->str:
 
     print(check_off_confirmation)
     return check_off_confirmation
+
+
