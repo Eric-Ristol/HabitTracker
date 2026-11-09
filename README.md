@@ -1,45 +1,56 @@
-# Habit tracker backend
-This is a project for the Fundamentals of Programming course. The task was to develop a backend solution for a habit tracker app.
+# Habit Tracker
 
-Object-Oriented Programming (OOP) is required in habit.py, while the rest of the code follows a functional programming approach.
-<br />
+A straightforward CLI backend to track habits, streaks, and analytics, built with Python and SQLite.
+
+Developed as part of my **Fundamentals of Programming** course.
+
+---
 
 ## Features
--Implementation of an easy-to-use CLI.
 
--Any frequency greater than 1 day can be used.
+- **Simple CLI**: Clean menu to create, modify, check off, and delete habits.
+- **Custom periodicity**: Support for daily, weekly, or any custom day interval.
+- **Analytics**: Calculates streaks and highlights which habits you're struggling with most.
+- **SQLite storage**: Lightweight local database (`main.db`) to keep history intact.
+- **Flexible check-ins**: Check off habits for today or log previous dates.
 
--Computes streaks and struggles.
+---
 
--A professional storage solution like SQLite3 was used.
+## Setup
 
--Check completion is possible at any time between the habit creation and today.
+Python 3's standard library handles almost everything. To run the tests, install `pytest`:
 
-## Required packages
-These are the strings that have to be input in your terminal to install the packages to run this code.
+```bash
+pip install pytest
+```
 
-`pip install pytest`
+---
 
-If the above commands doesn't work you should try with:
+## How to Run
 
-`pip3 install pytest`
+- **Start with a fresh database**:
+  ```bash
+  python main.py
+  ```
 
-## How to run the program
--If you want to use it without predefined data, you just have to run main.py and interact with the CLI.
+- **Load demo data first (optional)**:
+  If you want sample habits and historical check-ins loaded:
+  ```bash
+  python predefined_data.py
+  python main.py
+  ```
 
--If you want to use it with the predefined data, predefined_data.py must be executed before main.py. In both cases, main.db will be the db, and if you do both the data will be merged without any problem.
+---
 
--If tests are run, you do not have to worry about your current database information, as an alternate test.db is created for this purpose.
+## Testing
 
+Tests run against an isolated `test.db`, so your `main.db` won't be touched:
 
-## About testing
-Running test_habit.py executes all functions that users can interact with.
-Only positive cases are considered, as all possible failures are handled in main.py and the analytics.py module.
+```bash
+pytest test_habit_tracker.py
+```
 
-## Repository
-Go to [Habit tracker](https://github.com/Eric-Ristol/HabitTracker)
+---
 
 ### Author
 Eric Ristol
-
-Developed as part of the **Fundamentals of Programming** course.
